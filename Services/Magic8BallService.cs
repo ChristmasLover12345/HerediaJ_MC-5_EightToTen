@@ -13,7 +13,31 @@ namespace HerediaJ_MC_5_EightToTen.Services
         public string Magic8Ball(string userQuestion)
         {
             string answer = ""; 
+            bool numbersOnly = true;
+            char[] charArray = userQuestion.ToCharArray();
 
+
+            // Cheking if the answer provided is only numbers
+            for (int i = 0; i < charArray.Length; i++)
+            {
+                bool validation = int.TryParse(charArray[i].ToString(), out int convertedNum);
+
+                if (validation != true)
+                {
+                    numbersOnly = false;
+                }
+               
+                
+            }
+
+
+
+            if(numbersOnly == true)
+            {
+                return "I dont speak robot";
+            }
+            else
+            {
             switch (rng.Next(9))
             {
 
@@ -42,6 +66,7 @@ namespace HerediaJ_MC_5_EightToTen.Services
                     answer = $"Your question was: {userQuestion} \nYour answer: Just give up";
                 break;
 
+            }
             }
 
             return answer;
