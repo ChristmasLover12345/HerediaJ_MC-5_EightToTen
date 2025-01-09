@@ -10,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<Magic8BallService>();
 builder.Services.AddScoped<GuessItService>();
+builder.Services.AddScoped<RestaurantPickerService>();
 
 var app = builder.Build();
 
